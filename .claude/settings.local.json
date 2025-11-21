@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(quarkus create app:*)",
+      "Bash(mvn io.quarkus.platform:quarkus-maven-plugin:3.6.4:create:*)",
+      "Bash(go mod init:*)",
+      "Bash(go get:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

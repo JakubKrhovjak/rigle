@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres-java:
+    image: postgres:15-alpine
+    container_name: rigle-postgres-java
+    environment:
+      POSTGRES_DB: rigle_java
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-java-data:/var/lib/postgresql/data
+    networks:
+      - rigle-network
+
+  postgres-go:
+    image: postgres:15-alpine
+    container_name: rigle-postgres-go
+    environment:
+      POSTGRES_DB: rigle_go
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-go-data:/var/lib/postgresql/data
+    networks:
+      - rigle-network
+
+volumes:
+  postgres-java-data:
+  postgres-go-data:
+
+networks:
+  rigle-network:
+    driver: bridge
